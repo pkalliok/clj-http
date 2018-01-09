@@ -392,7 +392,7 @@
             (.setCredentials authscope creds)))))
      (if multipart
        (.setEntity ^HttpEntityEnclosingRequest http-req
-                   (mp/create-multipart-entity multipart))
+                   (mp/create-multipart-entity multipart req))
        (when (and body (instance? HttpEntityEnclosingRequest http-req))
          (if (instance? HttpEntity body)
            (.setEntity ^HttpEntityEnclosingRequest http-req body)
